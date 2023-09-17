@@ -1,5 +1,4 @@
 # Scratch_ds_Implementation
-# DSU
 union find data structure with union by rank and path compression heuristics
 To use the library:
   1. include "DSU.h" in your source file.
