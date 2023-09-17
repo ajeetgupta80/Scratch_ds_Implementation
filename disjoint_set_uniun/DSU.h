@@ -35,14 +35,13 @@ public:
         }
     }
 
-
     int Find_Ultimate_Parent(int id);
 
     void UNION_BY_RANK(int u, int v);
 
     void UNION_BY_SIZE(int u, int v);
 
-    int GROUP_COUNT();  // returns the no disjoint sets
+    int GROUP_COUNT(); // returns the no disjoint sets
 
 private:
     int CountOfGroups;
@@ -81,18 +80,21 @@ void DSU::UNION_BY_RANK(int u, int v)
     if (RANK_GROUP_1 < RANK_GROUP_2)
     {
         parents[group_1] = group_2;
-        
-    }else if(RANK_GROUP_2 < RANK_GROUP_1){
-          parents[group_2] = group_1;
-    }else{
-         parents[group_2] = group_1;
-         rank[group_1]++;
+    }
+    else if (RANK_GROUP_2 < RANK_GROUP_1)
+    {
+        parents[group_2] = group_1;
+    }
+    else
+    {
+        parents[group_2] = group_1;
+        rank[group_1]++;
     }
 }
 
 void DSU::UNION_BY_SIZE(int u, int v)
 {
-       if(!(isValidId(u) && isValidId(v)))
+    if (!(isValidId(u) && isValidId(v)))
     {
         return;
     }
@@ -106,15 +108,17 @@ void DSU::UNION_BY_SIZE(int u, int v)
     if (RANK_GROUP_1 < RANK_GROUP_2)
     {
         parents[group_1] = group_2;
-        size[group_2]+=size[group_1];
+        size[group_2] += size[group_1];
     }
-    else{
-         parents[group_2] = group_1;
-         size[group_1]+=size[group_2];
+    else
+    {
+        parents[group_2] = group_1;
+        size[group_1] += size[group_2];
     }
 }
 
-int DSU::GROUP_COUNT(){
+int DSU::GROUP_COUNT()
+{
     return CountOfGroups;
 }
 
